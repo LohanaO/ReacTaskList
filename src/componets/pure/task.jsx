@@ -35,7 +35,18 @@ const TaskComponet = ({ task }) => {
                 break;
         }
     }
-
+    //Funtion that returns icon dipending on completion of task
+        function TaskCompletedIcon(){
+           if (task.completed) {
+                return (<i className='bi-toggle-on' style={{color:'green', fontWeight:'bold'}}></i>)
+           }
+            else{
+                return (<i className='bi-toggle-off' style={{color:'grey', fontWeight:'bold'}}></i>)
+            }
+            }    
+                   
+        
+    
     return (
 
         <tr className='fw-normal'>
@@ -50,9 +61,9 @@ const TaskComponet = ({ task }) => {
             {taskLevelBadge()}
             </td>
             <td className='aling-middle'>
-            {task.completed ?
-            (<i className='bi-toggle-on' style={{color:'green', fontWeight:'bold'}}></i>)
-              : <i className='bi-toggle-off' style={{color:'grey', fontWeight:'bold'}}></i>}
+            {/* Execution of funtion to return icon depending on completion */}
+            {TaskCompletedIcon()}
+           
               <i className='bi-trash' style={{color:'tomato'}}></i>
             </td>
             

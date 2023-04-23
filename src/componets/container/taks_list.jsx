@@ -10,10 +10,16 @@ import '../../styles/task.scss'
 const TaksListComponent = () => {
     //Estado del componente
 
-    const defaultTask = new task('Example','Default Description',true,LEVELS.NORMAL);
+    const defaultTask1 = new task('Example1','Description1',true,LEVELS.NORMAL);
+
+    const defaultTask2 = new task('Example2',' Description2',false,LEVELS.URGENT);
+
+    const defaultTask3 = new task('Example3',' Description3',false,LEVELS.BLOckING);
 
 
-    const [tasks, setTasks] = useState([defaultTask]);
+
+
+    const [tasks, setTasks] = useState([defaultTask1, defaultTask2, defaultTask3]);
     const [loading, setLoading] = useState(true);
 
     //Control del ciclo de vida del componente
@@ -51,18 +57,23 @@ const TaksListComponent = () => {
                 </thead>
                
                 <tbody>
-                     {/*TODO Iterar sobre una lista de tareas */}
-                     <TaskComponet task={defaultTask}></TaskComponet>
+
+                {tasks.map((task, index)=>{
+                    return( 
+                        <TaskComponet
+                            key={index}
+                            task={task}>
+                        </TaskComponet>
+                        )
+                    }
+                )}
+                
                 </tbody>
             </table>
         </div>
 
         </div>
         
-    
-    
-            {/*TODO: APLICAR UN FOR/MAP PARA RENDERIZAR UNA LIST DE TAREAS */}
-           
         </div>
     );
 };
