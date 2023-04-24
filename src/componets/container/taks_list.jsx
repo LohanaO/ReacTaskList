@@ -33,9 +33,34 @@ const TaksListComponent = () => {
         };
     }, [tasks]);
 
-    const changeCompleted =(id)=>{
-        console.log('Cambiar Estado de una tarea');
-    }
+   function completeTask(task) {
+
+    console.log('Complete this task:', task);
+    const index=tasks.indexOf(task);
+    const tempTask=[...tasks];
+    tempTask[index].completed= !tempTask[index].completed;
+    //We update the state of the component and it will update the interaction of the task in order to show the task updated
+    setTasks(tempTask);
+   }
+
+   function DeleteTask(task){
+    console.log('Delete this task:', task);
+    const index=tasks.indexOf(task);
+    const tempTask=[...tasks];
+    tempTask.splice(index,1);
+    setTasks(tempTask);
+
+   }
+
+   function addTask(task){
+    console.log('Add this task:', task);
+    const index=tasks.indexOf(task);
+    const tempTask=[...tasks];
+    tempTask.push(task);
+    setTasks(tempTask);
+    
+
+   }
 
 
     return (
@@ -63,7 +88,9 @@ const TaksListComponent = () => {
                     return( 
                         <TaskComponet
                             key={index}
-                            task={task}>
+                            task={task}
+                            complete={completeTask}
+                            remove={DeleteTask}>
                         </TaskComponet>
                         )
                     }
@@ -72,9 +99,9 @@ const TaksListComponent = () => {
                 </tbody>
             </table>
         </div>
-                        <TaskForm></TaskForm>
+                       
         </div>
-        
+                <TaskForm add={addTask}></TaskForm>
         </div>
     );
 };

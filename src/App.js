@@ -20,8 +20,8 @@ function App() {
       {/*<Ejemplo1></Ejemplo1>*/}
       {/*<Ejemplo2></Ejemplo2>*/}
       {/*<GreetingStyled name='Lohana'></GreetingStyled>*/}
-      {/*<TaksListComponent></TaksListComponent>*/}
-      <Father/>
+      <TaksListComponent></TaksListComponent>
+      {/*<Father/>*/}
     </div>
   );
 }
