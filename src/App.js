@@ -8,6 +8,7 @@ import Ejemplo2 from './hooks/Ejemplo2';
 import GreetingStyled from './componets/pure/greetingStyled';
 import Father from './componets/container/father';
 
+
 function App() {
   return (
     <div className="App">
@@ -21,6 +22,7 @@ function App() {
       {/*<Ejemplo2></Ejemplo2>*/}
       {/*<GreetingStyled name='Lohana'></GreetingStyled>*/}
       <TaksListComponent></TaksListComponent>
+   
       {/*<Father/>*/}
     </div>
   );

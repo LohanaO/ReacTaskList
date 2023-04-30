@@ -3,9 +3,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { task } from '../../models/task.class';
 import { useEffect } from 'react';
+import { LEVELS } from '../../models/levels.enum';
 //Importamos la hoj de estilos de task.scss.
 import '../../styles/task.scss';
-import { LEVELS } from '../../models/levels.enum';
+
 
 const TaskComponet = ({ task, complete, remove }) => {
 
@@ -46,10 +47,19 @@ const TaskComponet = ({ task, complete, remove }) => {
             }    
                    
         
+    const taskCompleted={
+        color: 'gray',
+        textDecoration: 'line-through'
+
+    }
+    const taskPending={
+        color: 'tomato',
+        fontWeight: 'bold'
+    }
     
     return (
 
-        <tr className='fw-normal task-action'>
+        <tr className='fw-normal task-action' style={(task.completed) ? taskCompleted : taskPending}>
             <th>
                 <span className='ms-2'>{task.name}</span>
             </th>
